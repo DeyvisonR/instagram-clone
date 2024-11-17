@@ -1,0 +1,22 @@
+.footer{
+  width: 100%;
+}
+
+.footer div{
+    padding: 20px 0;
+    text-align: center;
+    margin: 0 2%;
+  }
+  
+.footer a{
+  margin: 0px 8px;
+  line-height: 25px;
+  color: #777373;
+  font-size: 13px;
+  display: inline-block;
+}
+  
+.footer a:hover{
+  color: var(--hover-color);
+  transition: var(--transition-hover);
+}

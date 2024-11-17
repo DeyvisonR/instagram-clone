@@ -1,0 +1,148 @@
+.modal__editar__conta{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: rgb(0, 0, 0, 0.4);
+    display: none;
+}
+
+.modal__editar__conta > div{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(12, 12, 12);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+.button__fechar__modal__editar__conta{
+    text-align: right;
+}
+
+.button__fechar__modal__editar__conta span{
+    cursor: pointer;
+}
+
+.modal__editar__conta > div > h2{
+    font-size: 30px;
+}
+
+.box__editar__foto{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.box__editar__foto__imagem{
+    width: 30%;
+    height: 120px;
+    border-radius: 50%;
+    background-color: red;
+    border: 1px solid white;
+}
+
+.box__editar__foto__imagem img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.box__editar__foto label{
+    padding: 10px 40px;
+    border-radius: 6px;
+    background-color: rgba(53, 51, 51, 0.4);
+    color: inherit;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.box__editar__foto label:hover{
+    background-color: rgb(20, 20, 20);
+}
+
+.modal__editar__conta > div > form{
+    margin-top: 20px;
+}
+
+.modal__editar__conta > div > form h3{
+    font-size: 16px;
+    font-weight:600;
+    margin-top: 10px;
+}
+
+.modal__editar__conta > div > form input[type="text"] , .modal__editar__conta > div > form textarea{
+    margin-top: 5px;
+    width: 100%;
+    height: 35px;
+    background-color: rgb(0, 0, 0, 0);
+    outline: 0;
+    border: 1px solid rgb(51, 50, 50);
+    color: inherit;
+    padding-left: 5px;
+    resize: vertical;
+    max-height: 250px;
+}
+
+.modal__editar__conta > div > form textarea{
+    height: 100px;
+    min-height: 100px;
+}
+
+.buttons__modal__editar__conta{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button__modal__editar__conta__cancelar,
+.button__modal__editar__conta__enviar{
+    width: 50%;
+    height: 34px;
+    margin: 0 10px;
+    color: inherit;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.button__modal__editar__conta__cancelar{
+    background-color: rgb(207, 84, 84);
+    text-align: center;
+    line-height: 32px;
+}
+
+.button__modal__editar__conta__enviar{
+    background-color: rgb(20, 166, 211);
+}
+
+@media screen and (max-width: 500px){
+    .box__editar__foto{
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .box__editar__foto__imagem{
+        margin-bottom: 20px;
+        width: 55%;
+        height: 150px;
+    }
+
+    .box__editar__foto button{
+        margin-left: 0px;
+    }
+}

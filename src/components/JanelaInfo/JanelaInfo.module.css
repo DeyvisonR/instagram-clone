@@ -1,0 +1,51 @@
+.janela_info{
+    width: 90%;
+    max-width: 300px;
+    min-height: 70px;
+    border-radius: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: rgb(218, 214, 214);
+    border-left: 5px solid green;
+    color: green;
+    padding: 10px;
+    opacity: 0;
+    z-index: 1000;
+}
+
+#janelaInfo{
+    background-color: black !important;
+}
+
+.janela_info div{
+    display: flex;
+}
+
+.janela_info div h2{
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.janela_info div span{
+    font-size: 16px;
+    margin: 4px 8px;
+    background-color: green;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+
+}
+
+.janela_info div span svg{
+    text-align: center;
+}
+
+.texto_janelaInfo{
+    margin: 0 2%;
+    margin-top: 5px;
+    font-size: 16px;
+}

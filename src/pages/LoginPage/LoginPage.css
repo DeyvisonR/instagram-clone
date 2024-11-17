@@ -1,0 +1,300 @@
+
+.janela-cadastrar{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+.janela-cadastrar > div{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(219, 217, 217, 0.8);
+    width: 90%;
+    max-width: 400px;
+    height: 500px;
+}
+
+.janela-cadastrar > div > p{
+    font-size: 25px;
+    margin-top: 12px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: right;
+}
+.janela-cadastrar div p svg{
+    cursor: pointer;
+}
+
+.janela-cadastrar-form{
+    text-align: center;
+}
+
+.janela-cadastrar-form h2{
+    font-size: 34px;
+    margin: 20px 0;
+    margin-bottom: 50px;
+}
+
+.janela-cadastrar-form input[type="text"],
+.janela-cadastrar-form input[type="password"]{
+    width: 80%;
+    height: 40px;
+    margin: 5px 0;
+    padding-left: 8px;
+    outline: 0;
+    border: 1px solid #8c8a8a;
+}
+
+.janela-cadastrar-form input[type="text"]:focus,
+.janela-cadastrar-form input[type="password"]:focus{
+    outline: 1px solid rgb(134, 132, 132);
+}
+
+.div__button__mostrar{
+    position: relative;
+    width: 100%;
+}
+
+.mostrar__senha__form{
+    font-size: 14px;
+    position: absolute;
+    top: -35px;
+    right: 50px;
+    cursor: pointer;
+}
+
+.mostrar__senha__form:hover{
+    color: rgb(110, 104, 104);
+    transition: 0,2s;
+}
+
+
+.janela-cadastrar-form input[type="submit"]{
+    margin-top: 10px;
+    width: 80%;
+    border: 0;
+    outline: 0;
+    height: 40px;
+    border-radius: 12px;
+    background-color: rgb(0, 149, 246);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.janela-cadastrar-form input[type="submit"]:hover{
+    background-color: var(--hover-color);
+    transition: var(--transition-hover);
+}
+
+.pagina-login-cadastrar{
+    display: flex;
+    margin: 0 auto;
+    max-width: 850px;
+    padding-top: 90px;
+}
+
+.box-pagina-login-imagens > img{
+    position: relative;
+}
+
+.box-pagina-login-imagens > div{
+    position: relative;
+}
+
+.box-pagina-login-imagens div > img{
+    position: absolute;
+    top: -615px;
+    right: 60px;
+    transition: 2s;
+    opacity: 0;
+}
+
+.formulario-pagina-login-cadastrar form{
+    border: 1px solid var(--border-color);
+    text-align: center;
+    padding: 20px 40px;
+    max-width: 350px;
+
+}
+
+.formulario-pagina-login-cadastrar form h1{
+    width: 185px;
+    height: 104px;
+    background-image: url("https://static.cdninstagram.com/rsrc.php/v3/yS/r/ajlEU-wEDyo.png");
+    background-repeat: no-repeat;
+    position: relative;
+    top: -20px;
+    margin: 0 auto;
+}
+
+.formulario-pagina-login-cadastrar form h1 a{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.formulario-pagina-login-cadastrar form h1 a{
+    color: black;
+    font-size: 40px;
+}
+
+.formulario-pagina-login-cadastrar form input[type="text"],
+.formulario-pagina-login-cadastrar form input[type="password"]{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    outline: 0;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    background-color: rgb(250,250,250);
+}
+
+.formulario-pagina-login-cadastrar form input::placeholder{
+    font-size: 12px;
+}
+
+.formulario-pagina-login-cadastrar form input[type="submit"]{
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+    outline: 0;
+    border: 0;
+    background-color: rgb(0, 149, 246);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario-pagina-login-cadastrar form input[type="submit"]:hover{
+    background-color: var(--hover-color);
+    transition: var(--transition-hover);
+}
+
+.texto-wraper{
+    position: relative;
+    padding: 20px 0 10px 0;
+}
+
+.texto-wraper div{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(219,219,219);
+    position: absolute;
+}
+
+.texto-wraper p{
+    position: relative;
+    top: -8px;
+    background-color: white;
+    display: inline-block;
+    width: 50px;
+    color: rgb(115,115,115);
+}
+
+.login-facebook{
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background-color: white;
+    color: #385185;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.login-facebook span{
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.login-facebook p{
+    font-size: 13px;
+}
+
+.esqueceu-senha{
+    font-size: 13px;
+    color: rgb(27, 27, 98);
+}
+
+.esqueceu-senha:hover{
+    color: rgb(21, 21, 216);
+    transition: var(--transition-hover);
+}
+
+.box-cadastrar{
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 350px;
+    margin-top: 10px;
+}
+
+.box-cadastrar h2{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px;
+}
+
+.box-cadastrar h2 a{
+    color: rgb(38, 149, 224);
+    font-weight: bold;
+}
+
+.box-cadastrar h2 a:hover{
+    transition: var(--transition-hover);
+    color: rgb(12, 104, 166);
+}
+
+.baixar-aplicativo{
+    text-align: center;
+}
+
+.baixar-aplicativo p{
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.baixar-aplicativo img{
+    max-width: 130px;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+
+
+@media screen and (max-width: 850px){
+    .box-pagina-login-imagens{
+        display: none;
+    }
+
+    .box-pagina-login-cadastrar{
+        margin: 0 auto;
+    }
+
+    .formulario-pagina-login-cadastrar{
+        margin: 0 2%;
+    }
+
+    footer{
+        margin-top: 80px;
+    }
+
+}
