@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { auth, db, storage } from '../../services/firebase.jsx';
 import { doc, setDoc, updateDoc } from "firebase/firestore";
-import './ModalEditarConta.css';
+import styles from './ModalEditarConta.module.css';
 import { useContext, useState } from 'react';
 import { mudarTextoJanela } from '../JanelaInfo/JanelaInfo';
 import imageValidation from '../../ultils/imageValidation.jsx';
@@ -102,7 +102,7 @@ function ModalEditarConta(){
     
     function fecharModalEditarConta(e){
         e.preventDefault();
-        document.querySelector(".modal__editar__conta").style.display = "none";
+        document.querySelector("#modal__editar__conta").style.display = "none";
         document.getElementById("UsernamePerfil").value = "";
         document.getElementById("NomePerfil").value = "";
         document.getElementById("BioPerfil").value = "";
@@ -110,14 +110,14 @@ function ModalEditarConta(){
     }
     
     return(
-        <div className="modal__editar__conta">
+        <div id="modal__editar__conta" className={styles.modal__editar__conta}>
             <div>
-                <p className="button__fechar__modal__editar__conta">
+                <p className={styles.button__fechar__modal__editar__conta}>
                     <span onClick={fecharModalEditarConta}><FontAwesomeIcon icon={faXmark}/></span>
                 </p>
                 <h2>Editar Perfil</h2>
-                <div className="box__editar__foto">
-                    <div className="box__editar__foto__imagem">
+                <div className={styles.box__editar__foto}>
+                    <div className={styles.box__editar__foto__imagem}>
                         {imagemPreview ? (<img src={imagemPreview} alt="nova imagem perfil" />) : (<></>)}
                     </div>
                     <input accept='image/*' onChange={(e)=>verificarImagem(e)} style={{display: "none"}} id='fileImage' type="file"></input>
@@ -130,9 +130,9 @@ function ModalEditarConta(){
                     <input id="UsernamePerfil" type="text" />
                     <h3>Bio</h3>
                     <textarea id="BioPerfil"></textarea>
-                    <div className="buttons__modal__editar__conta">
-                        <p onClick={fecharModalEditarConta} type='submit' className="button__modal__editar__conta__cancelar">Cancelar</p>
-                        <input type='submit' className="button__modal__editar__conta__enviar" value="Enviar"/>
+                    <div className={styles.buttons__modal__editar__conta}>
+                        <p onClick={fecharModalEditarConta} type='submit' className={styles.button__modal__editar__conta__cancelar}>Cancelar</p>
+                        <input type='submit' className={styles.button__modal__editar__conta__enviar} value="Enviar"/>
                     </div>
                 </form>
             </div>
@@ -141,7 +141,7 @@ function ModalEditarConta(){
 }
 
 function openModalEditarConta(){
-    document.querySelector(".modal__editar__conta").style.display = "block";
+    document.querySelector("#modal__editar__conta").style.display = "block";
 }
 
 
