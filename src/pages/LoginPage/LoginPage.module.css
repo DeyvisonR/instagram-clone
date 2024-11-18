@@ -27,11 +27,11 @@
 
 .box__pagina__login__cadastrar{
     width: 40%;
+    max-width: 350px;
 }
 
 .formulario__pagina__login__cadastrar{
     width: 100%;
-    max-width: 350px;
 }
 
 .formulario__pagina__login__cadastrar > form{
