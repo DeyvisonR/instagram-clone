@@ -1,0 +1,12 @@
+.mostrar__senha__form{
+    font-size: 14px;
+    position: absolute;
+    top: 18px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.mostrar__senha__form:hover{
+    color: rgb(110, 104, 104);
+    transition: 0,2s;
+}

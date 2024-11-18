@@ -150,7 +150,7 @@
         height: 150px;
     }
 
-    .box__editar__foto button{
+    .box__editar__foto label{
         margin-left: 0px;
     }
 }
