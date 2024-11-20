@@ -1,0 +1,25 @@
+.center__elementos__pagina__principal{
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .box__conteudos__pagina__principal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .conteudo__pagina__principal{
+    width: 60%;
+    height: 100%;
+    background-color: blue;
+  }
+  
+  .conteudo__adicional__pagina__principal{
+    width: 40%;
+    height: 100%;
+    background-color: red;
+  }

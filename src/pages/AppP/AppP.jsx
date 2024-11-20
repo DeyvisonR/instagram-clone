@@ -21,6 +21,7 @@ import { Footer } from '../../components/Footer/Footer.jsx';
 import { JanelaInfo } from '../../components/JanelaInfo/JanelaInfo.jsx';
 import { ModalEditarConta } from '../../components/ModalEditarConta/ModalEditarConta.jsx';
 import styles from "../AppP/AppP.module.css";
+import ModalOptions from '../../components/ModalOptions/ModalOptions.jsx';
 
 export default function AppP({setUser, documentTheme}){
   
@@ -41,10 +42,11 @@ export default function AppP({setUser, documentTheme}){
       <div className={styles.pagina__principal}>
         <JanelaInfo></JanelaInfo>
         <ModalEditarConta></ModalEditarConta>
+        <ModalOptions setUser={setUser}></ModalOptions>
         <aside className={styles.aside__pagina__principal}>
           <div className={styles.logo__aside__pagina__principal}>
             <a href='#'>Instagram</a>
-            <div onClick={mostrarOpcoes} className={styles.menu__bar__icone__pagina__principal}>
+            <div className={styles.menu__bar__icone__pagina__principal}>
               <span><FontAwesomeIcon icon={faInstagram} /></span>
               <p>Mais</p>
             </div>
@@ -82,7 +84,6 @@ export default function AppP({setUser, documentTheme}){
               <li>
                 <Link to="/Perfil"><span className={styles.foto__perfil__icon}></span>
                 <p>Perfil</p></Link>
-                
               </li>
             </ul>
           </nav>

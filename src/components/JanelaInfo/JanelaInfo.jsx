@@ -18,10 +18,11 @@ function JanelaInfo(){
 function mudarTextoJanela(titulo, texto, resposta){
 
     function animarJanelaInfo(){
+        janela.style.display = "block";
         janela.style.opacity = "1";
         let a = setTimeout(()=>{
             janela.style.opacity = "0";
-            
+            janela.style.display = "none";
         }, 8000);
     }
 
