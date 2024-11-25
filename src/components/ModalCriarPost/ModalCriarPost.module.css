@@ -1,0 +1,59 @@
+.modal__criar__post{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.modal__criar__post__wraper{
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--color-elementos-pagina-principal);
+    background-color:  rgb(12, 12, 12);
+    border: 1px solid white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.img__criar__post{
+    border: 1px solid rgb(51, 50, 50);
+}
+
+.img__criar__post > label{
+    width: 100%;
+    height: 400px;
+    display: block;
+    text-align: center;
+    line-height: 400px;
+    cursor: pointer;
+}
+
+.img__criar__post > div > img{
+    max-width: 100%;
+}
+.img__criar__post > div > label{
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.modal__criar__post__wraper > form > textarea{
+    width: 100%;
+    padding-left: 8px;
+    padding-top: 2px;
+    border: 1px solid rgb(51, 50, 50);
+    background-color: rgba(0,0,0,0);
+    margin-top: 10px;
+    min-height: 100px;
+    resize: vertical;
+    max-height: 300px;
+    outline: 0;
+    color: white;
+}

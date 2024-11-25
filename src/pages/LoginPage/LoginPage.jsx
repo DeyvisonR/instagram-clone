@@ -1,6 +1,5 @@
 import { auth } from "../../services/firebase.jsx";
-import { signInWithEmailAndPassword } from "firebase/auth";
-
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
 import imgGooglePlay from '../../assets/google-play-image.png';
 import imgMicrosoft from '../../assets/microsoft-image.png';
@@ -18,20 +17,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import ButtonMostrar from "../../components/ButtonMostrar/ButtonMostrar.jsx";
 import JanelaModalCadastrar from "../../components/JanelaModalCadastrar/JanelaModalCadstrar.jsx";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
-export default function LoginPage({setUser}){
+export default function LoginPage(){
+
+    const [InputsLogin, setInputsLogin] = useState({
+        email: "",
+        password: "",
+    })
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+              return navigate("/")
+            } else {
+        
+            }
+          });
+    }, [])
+    
 
     function Logar(e){
         e.preventDefault();
-        var usuario = document.getElementById("usuario").value;
-        var password = document.getElementById("senha").value;
-        signInWithEmailAndPassword(auth, usuario, password).then((userCredential)=>{
+        signInWithEmailAndPassword(auth, InputsLogin.email, InputsLogin.password).then((userCredential)=>{
             mudarTextoJanela("Logado","voce foi logado com sucesso", "True");
-            setUser(auth.currentUser.accessToken);
         }).catch((error)=>{
-            mudarTextoJanela("Erro","erro ao logar em sua conta", "False");
+            mudarTextoJanela("Erro","email e/ou senha invalidos", "False");
         })
     }
 
@@ -70,7 +86,7 @@ export default function LoginPage({setUser}){
     return(
         <>
             <JanelaInfo></JanelaInfo>
-            <JanelaModalCadastrar setUser={setUser}></JanelaModalCadastrar>
+            <JanelaModalCadastrar></JanelaModalCadastrar>
             <section className={styles.pagina__login__cadastrar}>
                 <div className={styles.box__pagina__login__imagens}>
                     <img src={imgCelulares}/>
@@ -85,9 +101,9 @@ export default function LoginPage({setUser}){
                     <div className={styles.formulario__pagina__login__cadastrar}>
                         <form>
                             <h1><a href="#">Instagram</a></h1>
-                            <input id="usuario" type="text" placeholder="Telefone, nome de usuário ou email" required/>
+                            <input value={InputsLogin.email} onChange={(e)=> setInputsLogin({...InputsLogin, email: e.target.value})} id="usuario" type="text" placeholder="Telefone, nome de usuário ou email" required/>
                             <div style={{position: "relative",width: "100%"}}>
-                                <input id="senha" type="password" placeholder="Senha" required/>
+                                <input value={InputsLogin.password} onChange={(e)=> setInputsLogin({...InputsLogin, password: e.target.value})} id="senha" type="password" placeholder="Senha" required/>
                                 <ButtonMostrar ButtonMostrar="buttonMostrar1" elementoMostrarId="senha"></ButtonMostrar>
                             </div>
                             <input type="submit" value="Entrar" onClick={Logar}/>

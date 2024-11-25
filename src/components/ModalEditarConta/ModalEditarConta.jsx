@@ -8,39 +8,27 @@ import { mudarTextoJanela } from '../JanelaInfo/JanelaInfo';
 import imageValidation from '../../ultils/imageValidation.jsx';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { PerfilContext } from '../../context/perfilContext.jsx';
+import ValidarDados from '../../ultils/ValidarDados.jsx';
 
-function ModalEditarConta(){
+export default function ModalEditarConta(){
 
     const [imagem, setImagem] = useState(null)
     const [imagemPreview, setImagemPreview] = useState(null)
     const {PerfilData, setPerfilData} = useContext(PerfilContext);
-
+    
     async function editarDadosConta(e){
         e.preventDefault()
         let userName = document.getElementById("UsernamePerfil").value;
         let nome = document.getElementById("NomePerfil").value;
         let bio = document.getElementById("BioPerfil").value;
-        let userNameTeste, nomeTeste, bioTeste;
-        if(userName.length <= 40){
-            userNameTeste = true;
-        }
-        if(nome.length <= 100){
-            nomeTeste = true;
-        }
-        if(bio.length <= 500){
-            bioTeste = true;
-        }
-        let verificardados = false;
-        if(userNameTeste === true && nomeTeste === true && bioTeste === true) {
-            verificardados = true;
-        }
+        const verificardados = ValidarDados(userName, nome, bio)
         let imagemURL = null;
         if(PerfilData){
             if(imagem){
                 const storageRef = ref(storage, `profileImages/${auth.currentUser.uid}`)
                 await uploadBytes(storageRef, imagem)
                 imagemURL = await getDownloadURL(storageRef)
-                if(verificardados){
+                if(verificardados == true){
                     await setDoc(doc(db,"users", auth.currentUser.uid), {
                         username: userName,
                         name: nome,
@@ -49,7 +37,7 @@ function ModalEditarConta(){
                     })
                 }
             }else{
-                if(verificardados){
+                if(verificardados == true){
                     await updateDoc(doc(db,"users", auth.currentUser.uid), {
                         username: userName,
                         name: nome,
@@ -139,10 +127,3 @@ function ModalEditarConta(){
         </div>
     )
 }
-
-function openModalEditarConta(){
-    document.querySelector("#modal__editar__conta").style.display = "block";
-}
-
-
-export {ModalEditarConta, openModalEditarConta}

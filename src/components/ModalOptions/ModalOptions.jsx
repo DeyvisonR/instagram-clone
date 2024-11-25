@@ -3,8 +3,9 @@ import styles from "../ModalOptions/ModalOptions.module.css";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { signOut } from "firebase/auth";
 import { auth } from "../../services/firebase";
+import { mudarTextoJanela } from "../JanelaInfo/JanelaInfo";
 
-export default function ModalOptions({setUser}){
+export default function ModalOptions(){
 
     function closeModal(){
         let modal = document.getElementById("modalOptions")
@@ -13,9 +14,9 @@ export default function ModalOptions({setUser}){
 
     function logout_account(){
         signOut(auth).then(()=>{
-          setUser(null)
+            mudarTextoJanela("Sucesso", "Você saiu da conta com sucesso", true);
         }).catch((error)=>{
-            
+            mudarTextoJanela("Erro", "Erro ao sair da conta. Por favor tente novamente", false);
         });
       }
 

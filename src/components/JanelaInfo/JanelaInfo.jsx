@@ -32,7 +32,7 @@ function mudarTextoJanela(titulo, texto, resposta){
     let tituloJanela = document.getElementById("titulo-janelaInfo");
     let textoJanela = document.getElementById("texto-janelaInfo");
     // green = rgb(74, 185, 74); red = #d35454
-     if(resposta == "True"){
+     if(resposta == true){
         imgJanela_1.style.display = "inline-block";
         imgJanela_2.style.display = "none";
         janela.childNodes[0].childNodes[0].style.backgroundColor = "rgb(74, 185, 74)";

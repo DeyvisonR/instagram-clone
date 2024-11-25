@@ -6,7 +6,6 @@ import { auth } from "../../services/firebase.jsx";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faBuilding, faGear, faTv } from '@fortawesome/free-solid-svg-icons';
-import { openModalEditarConta } from "../../components/ModalEditarConta/ModalEditarConta";
 import { PerfilContext } from "../../context/perfilContext.jsx";
 
 export default function Perfil(){
@@ -21,6 +20,10 @@ export default function Perfil(){
         modal.style.display = "block"
     }
 
+    function openModalEditarConta(){
+        document.querySelector("#modal__editar__conta").style.display = "block";
+    }
+
     return(
         <section className={styles.perfil}>
             <div className={styles.perfil__informacoes}>
@@ -30,7 +33,7 @@ export default function Perfil(){
                 <div className={styles.perfil__informacoes__pessoa}>
                     <div className={styles.pessoa__nome__editar}>
                         <div className={styles.pessoa__nome}>
-                            <h2>{PerfilData ? PerfilData.username : auth.currentUser.displayName}</h2>
+                            <h2>{PerfilData ? PerfilData.username : ""}</h2>
                             <div onClick={openModalMobile} className={styles.img__config}><FontAwesomeIcon icon={faGear}/></div>
                         </div>
                         <div className={styles.pessoa__editar}>
@@ -52,7 +55,7 @@ export default function Perfil(){
                 <div className={styles.perfil__informacoes__pessoa__nome__sobre__mobile}>
                         <h3>{PerfilData ? PerfilData.name : ""}</h3>
                         <p>{PerfilData ? PerfilData.bio : ""}</p>
-                    </div>
+                </div>
             </div>
             <div className={styles.reels}>
                 <div className={styles.criar__reels}>
