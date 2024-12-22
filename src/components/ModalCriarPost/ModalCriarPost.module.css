@@ -5,10 +5,21 @@
     position: absolute;
     z-index: 999;
     display: none;
+    overflow: auto;
+}
+
+.button__modal__criar__post{
+    position: relative;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 26px;
+    color: white;
+    text-align: right;
 }
 
 .modal__criar__post__wraper{
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     text-align: center;
     position: relative;
@@ -56,4 +67,22 @@
     max-height: 300px;
     outline: 0;
     color: white;
+    font-size: 14px;
+}
+
+.modal__criar__post__wraper > form > input[type="submit"]{
+    background-color: rgb(0, 149, 246);
+    color: rgb(226, 222, 222);
+    border: 0;
+    outline: 0;
+    padding: 10px 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.modal__criar__post__wraper > form > input[type="submit"]:hover{
+    background-color: rgb(25, 121, 185);
+    transition: 0.2s;
 }

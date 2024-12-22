@@ -1,0 +1,140 @@
+.post{
+    width: 100%;
+    max-width: 520px;
+    padding: 20px;
+    background-color: black;
+    color: var(--color-elementos-pagina-principal);
+    margin-bottom: 20px;
+}
+
+.post__header__pessoa{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.post__header__pessoa__imagem{
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.post__header__pessoa__imagem > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.post__header__pessoa__texto{
+    display: flex;
+}
+
+.post__header__pessoa__texto p{
+    margin: 0 5px;
+}
+
+.post__header__pessoa__options{
+    text-align: right;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.post__body__imagem{
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgb(110, 104, 104);
+    text-align: center;
+}
+
+.post__body__imagem > img{
+    width: 100%;
+    height: 100%;
+    max-height: 700px;
+}
+
+.post__body__options{
+    display: flex;
+    list-style-type: none;
+    margin-top: 10px;
+    font-size: 24px;
+    position: relative;
+}
+
+.post__body__options > li{
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.post__body__options > li:nth-of-type(4){
+    position: absolute;
+    right: 0;
+    margin: 0;
+}
+
+.post__body__options > li:hover{
+    color: rgb(110, 104, 104);
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+.post__body__curtidas{
+    font-size: 16px;
+    display: block;
+    margin: 5px 0;
+    color: inherit;
+}
+
+.post__body__comentario{
+    font-size: 18px;
+}
+
+.post__footer__comentarios{
+    color: rgb(168, 168, 168);
+    font-size: 16px;
+}
+
+.post__footer__comentar > form{
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.post__footer__comentar > form > textarea{
+    width: 100%;
+    resize: none;
+    min-height: 20px;
+    max-height: 100px;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    outline: 0;
+    overflow-y: auto;
+    color: inherit;
+}
+
+.post__footer__comentar > form > textarea::placeholder{
+    color: rgb(168, 168, 168);
+}
+
+.post__footer__comentar > form > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post__footer__comentar > form > div > input[type="submit"]{
+    color: rgb(0, 149, 246);
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.post__footer__comentar > form > div > input[type="submit"]:hover{
+    color: white;
+    transition: 0.2s;
+}

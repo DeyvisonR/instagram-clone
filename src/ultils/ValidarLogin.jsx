@@ -1,5 +1,7 @@
 export default function ValidarLogin(email=null, password=null, username=null, usernameTeste = false){
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    email = email.trim();
+    password = password.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
     if(email){
         if(!emailRegex.test(email)){
@@ -15,11 +17,12 @@ export default function ValidarLogin(email=null, password=null, username=null, u
         }
     }
     if(username){
-        if(username.length >= 40){
-            return ({erro: 'Erro', mensagem: "Tamanho invalido. Digite um username com menos de 40 caracteres", resposta: false});
+        username = username.trim();
+        if(username.length > 20){
+            return ({erro: 'Erro', mensagem: "Tamanho invalido. Digite um username com menos de 20 caracteres", resposta: false});
         }
         if(username.split(" ").length >= 2){
-            return ({erro: 'Erro', mensagem: "Username invalido. Digite um username valido", resposta: false});
+            return ({erro: 'Erro', mensagem: "Username invalido. Digite um username sem espaço", resposta: false});
         }  
     }
     if(!email || !password){

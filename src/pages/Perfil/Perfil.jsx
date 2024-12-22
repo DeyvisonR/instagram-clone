@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import styles from '../Perfil/Perfil.module.css';
 import fotoPerfil from '../../assets/foto-perfil.jpg'
@@ -7,6 +7,7 @@ import { auth } from "../../services/firebase.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faBuilding, faGear, faTv } from '@fortawesome/free-solid-svg-icons';
 import { PerfilContext } from "../../context/perfilContext.jsx";
+import Skeleton from "../../components/Skeleton/Skeleton.jsx";
 
 export default function Perfil(){
 
@@ -14,10 +15,18 @@ export default function Perfil(){
     const [seguidores, setSeguidores] = useState(0);
     const [seguindo, setSeguindo] = useState(0);
     const {PerfilData, setPerfilData} = useContext(PerfilContext);
+    const [IsLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(()=>{
+            setIsLoading(false);
+        },2000);
+    }, []);
+    
 
     function openModalMobile(){
-        let modal = document.getElementById("modalOptions")
-        modal.style.display = "block"
+        let modal = document.getElementById("modalOptions");
+        modal.style.display = "block";
     }
 
     function openModalEditarConta(){
@@ -28,28 +37,38 @@ export default function Perfil(){
         <section className={styles.perfil}>
             <div className={styles.perfil__informacoes}>
                 <div className={styles.perfil__informacoes__imagem}>
-                    <img src={PerfilData && PerfilData.profileImage ? PerfilData.profileImage : fotoPerfil} alt="foto do perfil" />
+                    {IsLoading ? <Skeleton width="100%" height="100%" borderRadius="50%"></Skeleton> : <img src={PerfilData && PerfilData.profileImage ? PerfilData.profileImage : fotoPerfil} alt="foto do perfil" />}
                 </div>
                 <div className={styles.perfil__informacoes__pessoa}>
                     <div className={styles.pessoa__nome__editar}>
-                        <div className={styles.pessoa__nome}>
-                            <h2>{PerfilData ? PerfilData.username : ""}</h2>
-                            <div onClick={openModalMobile} className={styles.img__config}><FontAwesomeIcon icon={faGear}/></div>
-                        </div>
-                        <div className={styles.pessoa__editar}>
-                            <button onClick={openModalEditarConta}>Editar Perfil</button>
-                            <button>Itens Arquivados</button>
-                            <div onClick={openModalMobile} className={styles.img__config}><FontAwesomeIcon icon={faGear}/></div>
-                        </div>
+                        {IsLoading ? <Skeleton></Skeleton> : <>
+                            <div className={styles.pessoa__nome}>
+                                <h2>{PerfilData ? PerfilData.username : ""}</h2>
+                                <div onClick={openModalMobile} className={styles.img__config}><FontAwesomeIcon icon={faGear}/></div>
+                            </div>
+                            <div className={styles.pessoa__editar}>
+                                <button onClick={openModalEditarConta}>Editar Perfil</button>
+                                <button>Itens Arquivados</button>
+                                <div onClick={openModalMobile} className={styles.img__config}><FontAwesomeIcon icon={faGear}/></div>
+                            </div>
+                        </>}
                     </div>
                     <div className={styles.perfil__informacoes__pessoa__dados}>
-                        <p>{publicacoes} publicações</p>
-                        <p>{seguidores} seguidores</p>
-                        <p>{seguindo} seguindo</p>
+                        {IsLoading ? <Skeleton></Skeleton> : <>
+                            <p>{publicacoes} publicações</p>
+                            <p>{seguidores} seguidores</p>
+                            <p>{seguindo} seguindo</p>
+                        </>}
                     </div>
                     <div className={styles.perfil__informacoes__pessoa__nome__sobre}>
-                        <h3>{PerfilData ? PerfilData.name : ""}</h3>
-                        <p>{PerfilData ? PerfilData.bio : ""}</p>
+                        {IsLoading ? <>
+                            <Skeleton></Skeleton>
+                            <Skeleton height="100px" margin="20px 0"></Skeleton>
+                        </> : <>
+                            <h3>{PerfilData ? PerfilData.name : ""}</h3>
+                            <p>{PerfilData ? PerfilData.bio : ""}</p>
+                        </>}
+                        
                     </div>
                 </div>
                 <div className={styles.perfil__informacoes__pessoa__nome__sobre__mobile}>
@@ -166,4 +185,5 @@ export default function Perfil(){
             </div>
         </section>
     )
+    
 }

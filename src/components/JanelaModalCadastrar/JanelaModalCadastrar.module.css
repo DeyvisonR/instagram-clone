@@ -7,6 +7,7 @@
     left: 0;
     z-index: 999;
     display: none;
+    overflow: auto;
 }
 
 .janela__cadastrar > div{

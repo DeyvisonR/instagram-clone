@@ -44,7 +44,7 @@ export default function LoginPage(){
 
     function Logar(e){
         e.preventDefault();
-        signInWithEmailAndPassword(auth, InputsLogin.email, InputsLogin.password).then((userCredential)=>{
+        signInWithEmailAndPassword(auth, InputsLogin.email.trim(), InputsLogin.password.trim()).then((userCredential)=>{
             mudarTextoJanela("Logado","voce foi logado com sucesso", "True");
         }).catch((error)=>{
             mudarTextoJanela("Erro","email e/ou senha invalidos", "False");
@@ -132,7 +132,7 @@ export default function LoginPage(){
                     </div>
                 </div>
             </section>
-            <Footer className={styles.footer}/>
+            <Footer/>
         </>
     )
 }

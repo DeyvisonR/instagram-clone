@@ -7,7 +7,7 @@ import ButtonMostrar from '../ButtonMostrar/ButtonMostrar';
 import { useState } from 'react';
 import ValidarLogin from '../../ultils/ValidarLogin';
 import { mudarTextoJanela } from '../JanelaInfo/JanelaInfo';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 
 export default function JanelaModalCadastrar(){
 
@@ -27,18 +27,23 @@ export default function JanelaModalCadastrar(){
         let resposta = ValidarLogin(InputsCadastrar.email, InputsCadastrar.password, InputsCadastrar.username, true)
         if(resposta == true){
             try{
-                const userCredential = await createUserWithEmailAndPassword(auth, InputsCadastrar.email, InputsCadastrar.password);
+                const userCredential = await createUserWithEmailAndPassword(auth, InputsCadastrar.email.trim(), InputsCadastrar.password.trim());
                 const usuario = userCredential.user
                 updateProfile(usuario,{
-                    displayName: InputsCadastrar.username
+                    displayName: InputsCadastrar.username.trim()
                 })
                 await setDoc(doc(db,"users", usuario.uid), {
+                    userId: usuario.uid,
                     username: InputsCadastrar.username,
                     name: "",
                     profileImage: "",
-                    bio: ""
+                    bio: "",
+                    seguidores: [],
+                    seguindo: [],
+                    posts: [],
+                    createdAt: serverTimestamp()
                 })
-                signInWithEmailAndPassword(auth, InputsCadastrar.email, InputsCadastrar.password).then((userCredential)=>{
+                signInWithEmailAndPassword(auth, InputsCadastrar.email.trim(), InputsCadastrar.password.trim()).then((userCredential)=>{
                     mudarTextoJanela("Sucesso","sua conta foi criada com sucesso", true)
                 }).catch((error)=>{
                     mudarTextoJanela("Erro","erro ao criar a conta", false)

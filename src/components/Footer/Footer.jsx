@@ -1,8 +1,8 @@
 import styles from'./Footer.module.css'
-function Footer({className}){
+function Footer(){
     return(
       <footer className={styles.footer}>
-        <div className={className}>
+        <div>
             <a href="">Meta</a>
             <a href="">Sobre</a>
             <a href="">Blogs</a>

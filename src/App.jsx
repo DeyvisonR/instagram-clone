@@ -27,6 +27,7 @@ import { Footer } from './components/Footer/Footer.jsx';
 import ModalEditarConta from './components/ModalEditarConta/ModalEditarConta.jsx';
 import ModalOptions from "../src/components/ModalOptions/ModalOptions.jsx";
 import ModalCriarPost from "../src/components/ModalCriarPost/ModalCriarPost.jsx";
+import fotoPerfil from "./assets/foto-perfil.jpg";
 
 
 export default function App() {
@@ -45,7 +46,7 @@ export default function App() {
         const unsub = onSnapshot(doc(db, "users", user.uid), (doc) => {
           setPerfilData(doc.data())
         },(error)=>{
-          mudarTextoJanela("Erro", "Erro ao acessar seus dados", false)
+
         });
       } else {
         return navigate("/auth")
@@ -81,7 +82,7 @@ export default function App() {
       <ModalCriarPost></ModalCriarPost>
       <aside className={styles.aside__pagina__principal}>
         <div className={styles.logo__aside__pagina__principal}>
-          <a href='#'>Instagram</a>
+          <Link to={"/"}>Instagram</Link>
           <div className={styles.menu__bar__icone__pagina__principal}>
             <span><FontAwesomeIcon icon={faInstagram} /></span>
             <p>Mais</p>
@@ -98,19 +99,19 @@ export default function App() {
               <p>Pesquisa</p></Link>
             </li>
             <li>
-              <Link to="/Explorar"><span><FontAwesomeIcon icon={faCompass} /></span>
+              <Link to="/Explorar/"><span><FontAwesomeIcon icon={faCompass} /></span>
               <p>Explorar</p></Link>
             </li>
             <li>
-              <Link to="/Reels"><span><FontAwesomeIcon icon={faClapperboard} /></span>
+              <Link to="/Reels/"><span><FontAwesomeIcon icon={faClapperboard} /></span>
               <p>Reels</p></Link>
             </li>
             <li>
-              <Link to="/Mensagens"><span><FontAwesomeIcon icon={faFacebookMessenger} /></span>
+              <Link to="/Mensagens/"><span><FontAwesomeIcon icon={faFacebookMessenger} /></span>
               <p>Mensagens</p></Link>
             </li>
             <li>
-              <Link to="/Notificacoes"><span><FontAwesomeIcon icon={faHeart} /></span>
+              <Link to="/Notificacoes/"><span><FontAwesomeIcon icon={faHeart} /></span>
               <p>Notificações</p></Link>
             </li>
             <li>
@@ -118,7 +119,7 @@ export default function App() {
               <p>Criar</p></a>
             </li>
             <li>
-              <Link to={"/Perfil/"}><span className={styles.foto__perfil__icon}></span>
+              <Link to={PerfilData.username+"/"}><span className={styles.foto__perfil__icon}><img src={PerfilData.profileImage ? PerfilData.profileImage : fotoPerfil} alt="foto do perfil" /></span>
               <p>Perfil</p></Link>
             </li>
           </ul>
