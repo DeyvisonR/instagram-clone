@@ -28,6 +28,7 @@ import ModalEditarConta from './components/ModalEditarConta/ModalEditarConta.jsx
 import ModalOptions from "../src/components/ModalOptions/ModalOptions.jsx";
 import ModalCriarPost from "../src/components/ModalCriarPost/ModalCriarPost.jsx";
 import fotoPerfil from "./assets/foto-perfil.jpg";
+import ModalPost from './components/ModalPost/ModalPost.jsx';
 
 
 export default function App() {
@@ -80,6 +81,7 @@ export default function App() {
       <ModalEditarConta></ModalEditarConta>
       <ModalOptions></ModalOptions>
       <ModalCriarPost></ModalCriarPost>
+      <ModalPost></ModalPost>
       <aside className={styles.aside__pagina__principal}>
         <div className={styles.logo__aside__pagina__principal}>
           <Link to={"/"}>Instagram</Link>

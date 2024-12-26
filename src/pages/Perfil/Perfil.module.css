@@ -104,6 +104,7 @@
 
 .perfil__informacoes__pessoa__nome__sobre__mobile{
     display: none;
+    width: 100%;
 }
 
 .perfil__informacoes__pessoa__nome__sobre{
@@ -195,18 +196,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
-    justify-content: center;
-}
-
-.publicacao{
-    width: 32%;
-    background-color: red;
-    margin: 2px;
-}
-
-.publicacao__wraper{
-    padding-top: 100%;
-    width: 100%;
+    justify-content: flex-start;
 }
 
 @media screen and (max-width:700px){
@@ -359,16 +349,6 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 40px;
-    }
-    
-    .publicacao{
-        width: 100%;
-        margin: 2px 0;
-    }
-
-    .publicacao__wraper{
-        padding-top: 90%;
-        width: 100%;
     }
 }
 

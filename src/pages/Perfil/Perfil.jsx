@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faBuilding, faGear, faTv } from '@fortawesome/free-solid-svg-icons';
 import { PerfilContext } from "../../context/perfilContext.jsx";
 import Skeleton from "../../components/Skeleton/Skeleton.jsx";
+import PerfilPost from "../../components/PerfilPost/PerfilPost.jsx";
 
 export default function Perfil(){
 
@@ -18,10 +19,10 @@ export default function Perfil(){
     const [IsLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(()=>{
+        if(PerfilData.userId){
             setIsLoading(false);
-        },2000);
-    }, []);
+        }
+    }, [PerfilData]);
     
 
     function openModalMobile(){
@@ -41,7 +42,10 @@ export default function Perfil(){
                 </div>
                 <div className={styles.perfil__informacoes__pessoa}>
                     <div className={styles.pessoa__nome__editar}>
-                        {IsLoading ? <Skeleton></Skeleton> : <>
+                        {IsLoading ? <>
+                            <Skeleton margin="10px 0"></Skeleton>
+                            <Skeleton></Skeleton>
+                        </>  : <>
                             <div className={styles.pessoa__nome}>
                                 <h2>{PerfilData ? PerfilData.username : ""}</h2>
                                 <div onClick={openModalMobile} className={styles.img__config}><FontAwesomeIcon icon={faGear}/></div>
@@ -64,7 +68,8 @@ export default function Perfil(){
                         {IsLoading ? <>
                             <Skeleton></Skeleton>
                             <Skeleton height="100px" margin="20px 0"></Skeleton>
-                        </> : <>
+                        </> : 
+                        <>
                             <h3>{PerfilData ? PerfilData.name : ""}</h3>
                             <p>{PerfilData ? PerfilData.bio : ""}</p>
                         </>}
@@ -72,9 +77,15 @@ export default function Perfil(){
                     </div>
                 </div>
                 <div className={styles.perfil__informacoes__pessoa__nome__sobre__mobile}>
-                        <h3>{PerfilData ? PerfilData.name : ""}</h3>
-                        <p>{PerfilData ? PerfilData.bio : ""}</p>
-                </div>
+                    {IsLoading ? <>
+                            <Skeleton height="20px" margin="20px 0"></Skeleton>
+                            <Skeleton height="100px"></Skeleton>
+                        </> : 
+                        <>
+                            <h3>{PerfilData ? PerfilData.name : ""}</h3>
+                            <p>{PerfilData ? PerfilData.bio : ""}</p>
+                        </>}
+                    </div>
             </div>
             <div className={styles.reels}>
                 <div className={styles.criar__reels}>
@@ -104,82 +115,13 @@ export default function Perfil(){
                 </div>
                 <div className="conteudo__pagina__perfil">
                     <div className={styles.publicacoes}>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        <div className={styles.publicacao}>
-                            <div className={styles.publicacao__wraper}>
-                                
-                            </div>
-                        </div>
-                        
+                        <PerfilPost></PerfilPost>
+                        <PerfilPost></PerfilPost>
+                        <PerfilPost></PerfilPost>
+                        <PerfilPost></PerfilPost>
+                        <PerfilPost></PerfilPost>
+                        <PerfilPost></PerfilPost>
+                        <PerfilPost></PerfilPost>
                     </div>
                 </div>
             </div>

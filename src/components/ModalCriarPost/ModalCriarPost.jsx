@@ -45,20 +45,20 @@ export default function ModalCriarPost(){
             }
             try{
                 const postDocRef = await addDoc(collection(db, "posts"),{
+                    postId: "",
                     imageUrl: "",
                     mensagem: Input,
                     createBy: auth.currentUser.uid,
                     likes: [],
                     comments: [],
                     createAt: serverTimestamp(),
-                    
                 });
 
-                const storageRef = ref(storage, `posts/${postDocRef.id}`);
+                const storageRef = ref(storage, `posts/${auth.currentUser.uid}/${postDocRef.id}`);
                 await uploadBytes(storageRef, Image)
                 const imageUrl = await getDownloadURL(storageRef)
 
-                await updateDoc(postDocRef,{imageUrl: imageUrl})
+                await updateDoc(postDocRef,{imageUrl: imageUrl, postId: postDocRef.id})
 
                 await updateDoc(doc(db,"users",auth.currentUser.uid),{
                     posts: arrayUnion(postDocRef.id)

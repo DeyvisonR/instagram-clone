@@ -24,7 +24,7 @@ export default function JanelaModalCadastrar(){
 
     async function cadastrarNewUser(e){
         e.preventDefault()
-        let resposta = ValidarLogin(InputsCadastrar.email, InputsCadastrar.password, InputsCadastrar.username, true)
+        let resposta = ValidarLogin(InputsCadastrar.email, InputsCadastrar.password, InputsCadastrar.username)
         if(resposta == true){
             try{
                 const userCredential = await createUserWithEmailAndPassword(auth, InputsCadastrar.email.trim(), InputsCadastrar.password.trim());

@@ -25,13 +25,8 @@ export default function ValidarLogin(email=null, password=null, username=null, u
             return ({erro: 'Erro', mensagem: "Username invalido. Digite um username sem espaço", resposta: false});
         }  
     }
-    if(!email || !password){
+    if(!email || !password || username){
         return ({erro: 'Erro', mensagem: "Ha campos que nao foram preenchidos. Por favor preencha todos os campos", resposta: false});
-    }
-    if(usernameTeste){
-        if(!username){
-            return ({erro: 'Erro', mensagem: "Ha campos que nao foram preenchidos. Por favor preencha todos os campos", resposta: false});
-        }
     }
     return true
 }

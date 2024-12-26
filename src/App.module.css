@@ -12,6 +12,7 @@
   color: var(--color-elementos-pagina-principal);
   position: relative;
   border-right: 1px solid var(--border-color-pagina-principal);
+  z-index: 998;
 }
 
 .logo__aside__pagina__principal{
